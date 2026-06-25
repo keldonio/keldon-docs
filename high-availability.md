@@ -2,7 +2,7 @@
 title: "High Availability"
 description: "Configure replication, failover, and self-healing behavior."
 category: "Guides"
-weight: 40
+weight: 4
 ---
 
 Keldon uses PostgreSQL streaming replication with synchronous or asynchronous commit modes. The operator continuously monitors cluster health and performs automatic failover when the primary becomes unreachable.

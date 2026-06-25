@@ -2,7 +2,7 @@
 title: "Configuration"
 description: "Tune PostgreSQL parameters, storage, and cluster behavior."
 category: "Guides"
-weight: 30
+weight: 3
 ---
 
 The `Cluster` resource is the heart of Keldon. Everything about a PostgreSQL cluster — replicas, storage, credentials, tuning, backups — is declared in a single manifest.

@@ -2,7 +2,7 @@
 title: "Backups"
 description: "Continuous WAL archiving and point-in-time recovery to object storage."
 category: "Guides"
-weight: 50
+weight: 5
 ---
 
 Keldon performs physical base backups and continuously archives WAL segments to object storage. This combination enables point-in-time recovery to any moment within the retention window.

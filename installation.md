@@ -2,7 +2,7 @@
 title: "Installation"
 description: "Install the Keldon operator on your Kubernetes cluster."
 category: "Guides"
-weight: 20
+weight: 2
 ---
 
 Keldon can be installed in several ways depending on your environment and preferences. We recommend Helm for production deployments because it makes upgrades predictable.

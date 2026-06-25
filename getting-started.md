@@ -2,7 +2,7 @@
 title: "Getting Started"
 description: "Deploy your first PostgreSQL cluster on Kubernetes in under five minutes."
 category: "Guides"
-weight: 10
+weight: 1
 ---
 
 This guide walks you through the fastest path to a running PostgreSQL cluster on Kubernetes. By the end, you'll have a three-node highly available PostgreSQL setup with automated failover and backups configured.
