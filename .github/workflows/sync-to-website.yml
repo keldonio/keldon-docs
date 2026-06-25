@@ -1,0 +1,60 @@
+name: Sync docs to keldon-website
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: sync-docs-to-website
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout keldon-docs
+        uses: actions/checkout@v4
+        with:
+          path: docs-source
+
+      - name: Checkout keldon-website
+        uses: actions/checkout@v4
+        with:
+          repository: keldonio/keldon-website
+          token: ${{ secrets.KELDON_WEBSITE_TOKEN }}
+          path: website
+          ref: main
+
+      - name: Configure git
+        run: |
+          cd website
+          git config user.name "keldon-content-sync"
+          git config user.email "actions@users.noreply.github.com"
+
+      - name: Sync docs content
+        run: |
+          rm -rf website/content/docs
+          mkdir -p website/content/docs
+
+          rsync -av \
+            --exclude '.git' \
+            --exclude '.github' \
+            --exclude 'README.md' \
+            --exclude 'CONTRIBUTING.md' \
+            --exclude 'LICENSE' \
+            docs-source/ website/content/docs/
+
+      - name: Commit and push if changed
+        run: |
+          cd website
+          git add -A content/docs/
+
+          if git diff --staged --quiet; then
+            echo "No changes to sync"
+            exit 0
+          fi
+
+          git commit -m "chore(sync): update docs from keldon-docs@${{ github.sha }} [skip ci]"
+          git push origin main
