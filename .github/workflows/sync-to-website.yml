@@ -56,5 +56,5 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore(sync): update docs from keldon-docs@${{ github.sha }} [skip ci]"
+          git commit -m "chore(sync): update docs from keldon-docs@${{ github.sha }}"
           git push origin main

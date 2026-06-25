@@ -1,6 +1,6 @@
 ---
 title: "Test Page"
-description: "A dummy documentation page used to test sidebar ordering and section anchors."
+description: "A dummy documentation page used to test sidebar ordering and section anchors and automatic commit."
 category: "Guides"
 weight: 6
 ---
