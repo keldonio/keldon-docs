@@ -1,8 +1,8 @@
 ---
-title: "Installation"
-description: "Set up the operator on your Kubernetes cluster."
-category: "Guides"
-weight: 7
+title: "Configuration"
+description: "Tune PostgreSQL, storage, networking, and more."
+category: "Deploy"
+weight: 8
 ---
 
 This is a dummy documentation page for testing the Keldon docs layout.
