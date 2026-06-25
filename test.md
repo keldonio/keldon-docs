@@ -53,53 +53,10 @@ After the installation, check that the operator is running:
 kubectl get pods -n keldon-system
 ```
 
-## Create a Test Cluster
-
-Once the operator is installed, you can create a dummy database cluster.
-
-```yaml
-apiVersion: keldon.io/v1alpha1
-kind: DatabaseCluster
-metadata:
-  name: test-cluster
-spec:
-  version: "latest"
-  replicas: 1
-```
-
-Apply it with:
-
-```bash
-kubectl apply -f test-cluster.yaml
-```
-
-## Verify the Result
-
-Check that the custom resource was created:
-
-```bash
-kubectl get databaseclusters
-```
-
-You can also describe the resource:
-
-```bash
-kubectl describe databasecluster test-cluster
-```
 
 ## Cleanup
 
 To remove the test cluster:
-
-```bash
-kubectl delete databasecluster test-cluster
-```
-
-To uninstall Keldon:
-
-```bash
-helm uninstall keldon --namespace keldon-system
-```
 
 ## Notes
 
