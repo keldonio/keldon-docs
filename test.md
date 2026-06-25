@@ -1,6 +1,6 @@
 ---
-title: "Test Page"
-description: "A dummy documentation page used to test sidebar ordering and section anchors and automatic commit."
+title: "Getting Started"
+description: "Deploy your first cluster in minutes"
 category: "Guides"
 weight: 6
 ---
