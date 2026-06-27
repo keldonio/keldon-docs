@@ -33,18 +33,19 @@ jobs:
           git config user.name "keldon-content-sync"
           git config user.email "actions@users.noreply.github.com"
 
-      - name: Sync docs content
+      - name: Sync versioned docs
         run: |
-          rm -rf website/content/docs
-          mkdir -p website/content/docs
+          # Sync each version folder found in the repo root
+          # Existing versions on the website that are NOT in this repo are left untouched
+          for version_dir in docs-source/v*/; do
+            version=$(basename "$version_dir")
+            echo "Syncing $version..."
 
-          rsync -av \
-            --exclude '.git' \
-            --exclude '.github' \
-            --exclude 'README.md' \
-            --exclude 'CONTRIBUTING.md' \
-            --exclude 'LICENSE' \
-            docs-source/ website/content/docs/
+            mkdir -p "website/content/docs/$version"
+
+            rsync -av --delete \
+              "$version_dir" "website/content/docs/$version/"
+          done
 
       - name: Commit and push if changed
         run: |
@@ -56,5 +57,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "chore(sync): update docs from keldon-docs@${{ github.sha }}"
+          # List which versions were synced for the commit message
+          versions=$(ls docs-source | grep '^v' | tr '\n' ' ')
+          git commit -m "chore(sync): update docs [${versions% }] from keldon-docs@${{ github.sha }}"
           git push origin main
