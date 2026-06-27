@@ -8,7 +8,7 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 
 ## Contributor License Agreement
 
-By submitting a pull request, you agree to the terms of our [Contributor License Agreement](CLA.md).
+By submitting a pull request, you agree to the terms of our [Contributor License Agreement](https://gist.github.com/elhimad/380e7ad3f200955c56d5bb74ddeff2e0).
 
 The first time you open a pull request, the [CLA Assistant](https://cla-assistant.io) bot will comment with a link to sign electronically via GitHub. The signature covers all your future contributions to any Keldon repository. You only need to sign once.
 
